@@ -1,0 +1,12 @@
+.rootcomponent {
+    align-items: center;
+    justify-content: center;
+    display: grid;
+}
+
+
+.navzone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
