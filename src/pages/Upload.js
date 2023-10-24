@@ -6,8 +6,8 @@ import classes from './Upload.module.css';
 
 const UploadPage = (props) => {
 
-    const uploadDataHandler = async (title, date, description) => {
-        await props.upload(title, date, description);
+    const uploadDataHandler = async (key, title, date, time, description) => {
+        await props.upload(key, title, date, time, description);
     }
 
     return (

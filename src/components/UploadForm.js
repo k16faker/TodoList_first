@@ -7,20 +7,34 @@ const UploadForm = (props) => {
     const titleInputRef = useRef();
     const dateInputRef = useRef();
     const descriptionInputRef = useRef();
+    const timeInputRef = useRef();
 
 
     const uploadHandler = (event) => {
         event.preventDefault();
 
+        const a = Math.random();
+        const enteredKey = a.toString();
         const enteredTitle = titleInputRef.current.value;
         const enteredDate = dateInputRef.current.value;
         const enteredDescription = descriptionInputRef.current.value;
+        const enteredTime = timeInputRef.current.value;
 
-        props.dataupload(enteredTitle, enteredDate, enteredDescription);
+
+        if(enteredTitle.trim().length === 0 || 
+        enteredDate.trim().length === 0 || 
+        enteredDescription.trim().length === 0 || 
+        enteredTime.trim().length === 0){
+            window.alert('Please fill all the fields!');
+            return;
+        };
+        props.dataupload(enteredKey, enteredTitle, enteredDate, enteredTime, enteredDescription);
+
 
 
         titleInputRef.current.value='';
         dateInputRef.current.value='';
+        timeInputRef.current.value='';
         descriptionInputRef.current.value='';
 
         window.alert('Upload Successful!');
@@ -35,6 +49,7 @@ const UploadForm = (props) => {
             </div>
             <div className={classes.dateinput}>
                 <input type="date" ref={dateInputRef} />
+                <input type='time' ref={timeInputRef} />
             </div>
             <div className={classes.descriptioninput}>
                 <textarea placeholder='Description' ref={descriptionInputRef} />

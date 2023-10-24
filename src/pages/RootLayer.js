@@ -7,9 +7,7 @@ const RootLayer = () => {
 
     return (
         <div className={classes.rootcomponent}>
-            <div className={classes.navzone}>
-                <MainNavigation />
-            </div>
+            <MainNavigation />
             <Outlet />
         </div>
     )

@@ -10,6 +10,7 @@ import RootLayer from './pages/RootLayer';
 import ErrorPage from './pages/Error';
 import UploadPage from './pages/Upload';
 import ListPage from './pages/ListPage';
+import LoginPage from './pages/LoginPage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmZZE5yOjzAyHfHtYNjayK6XtpKt02ruw",
@@ -33,15 +34,27 @@ function App() {
 
 
   const [data, setData] = useState([]);
+  const [deletedData, setDeletedData] = useState('');
 
 
-  const dataUploadHandler = async (title, date, description) => {
-    await setDoc(doc(db, "todolist", title), {
-      key : Math.random(),
+  const dataUploadHandler = async (key, title, date, time, description) => {
+    console.log(key, title, date, time, description);
+    await setDoc(doc(db, "todolist", key), {
       title: title,
       date: date,
-      description: description
+      time: time,
+      description: description,
+      key: parseFloat(key),
     });
+  };
+
+  const deletedDataChoiceHandler = async (title) => {
+    if(window.confirm('are you sure you want to delete this?')) {
+      setDeletedData(title);
+      await deleteDoc(doc(db, "todolist", title));
+    } else {
+      return;
+    }
   };
 
   // const dataLoadHandler = async () => {
@@ -85,12 +98,6 @@ function App() {
     })
   };
 
-  const onDeleteClick = async (title) => {
-    const nweetTextRef = doc(db, "todolist", `${title}`); // 우선 nweetTextRef 변수에다가 nweet의 id를 담아줌
-    const ok = window.confirm("are you sure delete?");
-    if (ok) {
-      await deleteDoc(nweetTextRef); // deleteDoc을 이용해서 지워버림
-  }};
 
   useEffect(() => {
     dataLoadHandler();
@@ -108,7 +115,7 @@ function App() {
       children: [
         {
           path: 'list',
-          element: <ListPage list={data} delete={onDeleteClick}/>,
+          element: <ListPage list={data} delete={deletedDataChoiceHandler}/>,
         },
         {
           path: 'upload',
@@ -116,7 +123,7 @@ function App() {
         },
         {
           path: 'login',
-          element: <h1>Login</h1>,
+          element: <LoginPage />
         },
       ],
     },

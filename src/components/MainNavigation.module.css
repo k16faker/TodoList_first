@@ -1,9 +1,9 @@
 
 .header {
-    align-items: center;
-    width: 1000px;
-    height: 80px;
+    width: auto;
+    height: 50px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background: linear-gradient(to right, yellow, skyblue);
     border-radius: 40px;
@@ -36,6 +36,9 @@
     font-weight: bold;
     font-size: 20px;
     color: white;
+    border:none;
+    border-radius: 30px;
+    padding: 10px;
 }
 
 
@@ -43,4 +46,15 @@
     color: black;
     cursor: pointer;
     border-bottom: 2px solid red;
+    background-color: white;
+}
+
+.unordered li:active {
+    color: black;
+    border-bottom: 2px solid red;
+    background-color: white;
+}
+
+.unordered li:visited {
+    color:white;
 }

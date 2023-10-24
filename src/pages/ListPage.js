@@ -1,6 +1,7 @@
 
 
 import List from '../components/List';
+import classes from './ListPage.module.css';
 
 const ListPage = (props) => {
 
@@ -9,7 +10,7 @@ const ListPage = (props) => {
 
 
     return (
-        <div>
+        <div className={classes.fulllist}>
             <List list={data} delete={deleteHandler}/>
         </div>
     )

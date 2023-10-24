@@ -2,7 +2,11 @@
 
 .alllist {
     list-style: none;
-    border: 2px solid skyblue;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-radius: 5px;
     background-color: skyblue;
 }
@@ -22,10 +26,15 @@
 .listel {
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 1rem;
     padding: 5px;
     font-family: 'Arial', 'sans-serif';
     border: 1px solid black;
     border-radius: 25px;
+}
+
+.listkey {
+    display: none;
 }
 
 .deletebutton {

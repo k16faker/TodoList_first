@@ -1,9 +1,18 @@
 
 .form {
-    border: 1px solid black;
+    background: linear-gradient(to right, #d1913c, #ffd194);
+    border: none;
     border-radius: 40px;
+    padding-top: 15px;
     height: 500px;
     width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form h2 {
+    font-style: italic;
+    color: white;
 }
 
 .titleinput, .dateinput, .descriptioninput {
@@ -11,6 +20,7 @@
     margin-right: auto;
     margin-top: 20px;
 }
+
 
 .submitbutton {
     margin-left: auto;
@@ -21,12 +31,18 @@
     width: 100px;
     height: 30px;
     font-size: 15px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Arial', 'sans-serif';
     background-color: rgb(89, 228, 85);
     border: 1px solid black;
+    cursor: pointer;
+}
+
+.submitbutton:hover {
+    background-color: gainsboro;
 }
 
 input, textarea {
+    border:none;
     border-radius: 20px;
     width: 400px;
     text-align: center;
@@ -39,5 +55,4 @@ input {
 
 textarea {
     height: 200px;
-    border: 2px solid black;
 }
