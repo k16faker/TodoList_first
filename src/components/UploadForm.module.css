@@ -35,10 +35,14 @@
     background-color: rgb(89, 228, 85);
     border: 1px solid black;
     cursor: pointer;
+    transition: all 0.5s;
 }
 
 .submitbutton:hover {
     background-color: gainsboro;
+    width: 150px;
+    height: 40px;
+    border-radius: 40px;
 }
 
 input, textarea {

@@ -39,6 +39,7 @@
     border:none;
     border-radius: 30px;
     padding: 10px;
+    transition: all 0.5s;
 }
 
 

@@ -9,6 +9,7 @@
     border-radius: 10px;
     width: 30%;
     background: linear-gradient(135deg, #1B8AF1, #B58DED);
+    font-family: 'Arial', sans-serif;
 }
 
 .forms {
@@ -42,6 +43,7 @@
     border:  none;
     text-align: center;
 }
+
 
 .buttonzone {
     width: auto;

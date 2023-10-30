@@ -7,14 +7,14 @@
     padding-bottom: 10px;
     padding-left: 5px;
     padding-right: 5px;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: skyblue;
 }
 
 .eachlist {
     border: 2px solid black;
     background-color: aliceblue;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -50,4 +50,29 @@
     font-weight: bold;
     padding: 5px;
     cursor: pointer;
+}
+
+.searchzone {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.searchbar {
+    width: 300px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.searchbutton {
+    width: 60px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
