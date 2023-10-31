@@ -18,7 +18,7 @@
     padding: 10px;
 }
 
-.idzone, .passwordzone {
+.idzone, .passwordzone, .namezone {
     display: grid;
     margin-left: auto;
     margin-right: auto;
@@ -44,25 +44,47 @@
     text-align: center;
 }
 
+.namezone input {
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border:  none;
+    text-align: center;
+}
+
 
 .buttonzone {
+    display: grid;
     width: auto;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
     text-align: center;
 }
 
-.buttonzone button {
-    width: 20%;
+.btnlink {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 10px;
+    width: 150px;
     height: 40px;
     border-radius: 20px;
     background-color: skyblue;
-    color: white;
+    color: black;
     font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-align: center;
 }
 
-.buttonzone button:hover {
+.btnlink:hover {
     border-right: 1px solid red;
     border-bottom: 3px solid red;
+}
+
+.finbtn {
+    margin-top: 20px;
+
 }
