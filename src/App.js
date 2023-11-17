@@ -1,16 +1,22 @@
-import {React, useEffect, useState} from 'react';
+import { React, useEffect, useState } from "react";
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import {initializeApp} from 'firebase/app';
-import { getFirestore, onSnapshot} from "firebase/firestore";
-import { doc, setDoc, getDocs, collection, deleteDoc} from "firebase/firestore"; 
+import { initializeApp } from "firebase/app";
+import { getFirestore, onSnapshot } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  getDocs,
+  collection,
+  deleteDoc,
+} from "firebase/firestore";
 
-import RootLayer from './pages/RootLayer';
-import ErrorPage from './pages/Error';
-import UploadPage from './pages/Upload';
-import ListPage from './pages/ListPage';
-import LoginPage from './pages/LoginPage';
+import RootLayer from "./pages/RootLayer";
+import ErrorPage from "./pages/Error";
+import UploadPage from "./pages/Upload";
+import ListPage from "./pages/ListPage";
+import LoginPage from "./pages/LoginPage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmZZE5yOjzAyHfHtYNjayK6XtpKt02ruw",
@@ -18,24 +24,16 @@ const firebaseConfig = {
   projectId: "mylisttest-be9b5",
   storageBucket: "mylisttest-be9b5.appspot.com",
   messagingSenderId: "94232593897",
-  appId: "1:94232593897:web:f233cae8e406400b62b778"
+  appId: "1:94232593897:web:f233cae8e406400b62b778",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
-
-
-
-
 function App() {
-
-
   const [data, setData] = useState([]);
-  const [deletedData, setDeletedData] = useState('');
-
+  const [deletedData, setDeletedData] = useState("");
 
   const dataUploadHandler = async (key, title, date, time, description) => {
     console.log(key, title, date, time, description);
@@ -49,7 +47,7 @@ function App() {
   };
 
   const deletedDataChoiceHandler = async (title) => {
-    if(window.confirm('are you sure you want to delete this?')) {
+    if (window.confirm("are you sure you want to delete this?")) {
       setDeletedData(title);
       await deleteDoc(doc(db, "todolist", title));
     } else {
@@ -65,12 +63,11 @@ function App() {
   //   setData(list);
   // }
 
-
   function sortDate1(list) {
-    const sorted_list = list.sort(function(a, b) {
+    const sorted_list = list.sort(function (a, b) {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
-      return sorted_list;
+    return sorted_list;
   }
 
   const dataLoadHandler = async () => {
@@ -90,46 +87,40 @@ function App() {
     // })
 
     onSnapshot(dataCollection, (snapshot) => {
-      const todoListData = []
-      snapshot.forEach(doc => {
-        todoListData.push(doc.data())
-      })
+      const todoListData = [];
+      snapshot.forEach((doc) => {
+        todoListData.push(doc.data());
+      });
       setData(sortDate1(todoListData));
-    })
+    });
   };
-
 
   useEffect(() => {
     dataLoadHandler();
     // unSub();
   }, [data]);
 
-    
-
-
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: <RootLayer />,
       errorElement: <ErrorPage />,
       children: [
         {
-          path: 'list',
-          element: <ListPage list={data} delete={deletedDataChoiceHandler}/>,
+          path: "list",
+          element: <ListPage list={data} delete={deletedDataChoiceHandler} />,
         },
         {
-          path: 'upload',
-          element: <UploadPage upload={dataUploadHandler} />
+          path: "upload",
+          element: <UploadPage upload={dataUploadHandler} />,
         },
         {
-          path: 'login',
-          element: <LoginPage />
+          path: "login",
+          element: <LoginPage />,
         },
       ],
     },
-  ])
-
-
+  ]);
 
   return (
     <div className="App">
