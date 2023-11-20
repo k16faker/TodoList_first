@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { motion } from "framer-motion";
 
 import classes from "./List.module.css";
 
@@ -40,9 +41,9 @@ const List = (props) => {
               <p className={classes.listel}>{item.date}</p>
               <p className={classes.listel}>{item.time}</p>
               <p className={classes.listel}>{item.description}</p>
-              <button className={classes.deletebutton} onClick={deleteHandler}>
+              <motion.button className={classes.deletebutton} onClick={deleteHandler} whileHover={{scale : 1.3}}>
                 Delete
-              </button>
+              </motion.button>
             </li>
           ))}
         {isSearching &&
@@ -53,9 +54,9 @@ const List = (props) => {
               <p className={classes.listel}>{item.date}</p>
               <p className={classes.listel}>{item.time}</p>
               <p className={classes.listel}>{item.description}</p>
-              <button className={classes.deletebutton} onClick={deleteHandler}>
+              <motion.button className={classes.deletebutton} onClick={deleteHandler} whileHover={{scale : 1.3}}>
                 Delete
-              </button>
+              </motion.button>
             </li>
           ))}
       </ul>
